@@ -11,11 +11,11 @@ class LCTFindRootScene(LCTBaseScene):
         title = self._section_title("LCT FindRoot(v)  —  Traversal & Zig-Zig Amortization", color=GREEN)
         self.play(Write(title, run_time=0.4))
 
-        # Deep, unbalanced continuous chain representation inside an Aux Tree
-        V_pos = [ 2.0,  2.2, 0]
-        P_pos = [ 0.5,  1.0, 0]
-        W_pos = [-1.0, -0.2, 0]
-        A_pos = [-2.5, -1.4, 0] # This will be our target structural root
+        # Initial layout coordinates shifted downward to clear space for text headers
+        V_pos = [ 2.0,  1.0, 0]
+        P_pos = [ 0.5, -0.2, 0]
+        W_pos = [-1.0, -1.4, 0]
+        A_pos = [-2.5, -2.6, 0] # Our target structural root
 
         n_v = self._node("v", V_pos)
         n_p = self._node("p", P_pos)
@@ -48,11 +48,11 @@ class LCTFindRootScene(LCTBaseScene):
         lbl2 = self._hint("Step 2: Splay(a) via Zig-Zig execution. Rebalances the deep spine completely.", YELLOW, title)
         self.play(ReplacementTransform(hint, lbl2), FadeOut(b_chain))
 
-        # Symmetric balanced coordinate targets
-        new_a = [ 0.0,  2.2, 0]
-        new_w = [-1.5,  0.8, 0]
-        new_p = [ 1.5,  0.8, 0]
-        new_v = [ 2.5, -0.6, 0]
+        # Shifted target animation anchors to preserve structural padding
+        new_a = [ 0.0,  1.0, 0]
+        new_w = [-1.5, -0.4, 0]
+        new_p = [ 1.5, -0.4, 0]
+        new_v = [ 2.5, -1.8, 0]
 
         # Everything transforms uniformly, keeping edges attached dynamically
         self.play(
